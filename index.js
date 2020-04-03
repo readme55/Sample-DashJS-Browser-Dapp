@@ -4,7 +4,15 @@ let submitText = document.getElementById('submitText');
 // let submitText = document.getElementById('submitText');
 // let submitText = document.getElementById('submitText');
 
-// external registered user Identity DUxf95cCdPTor7BfWMXmr2VmHQqdKMPQv6fauecy7Wuy
+// Mnemonic: toddler repair print phrase crouch curve charge typical swap bachelor outer upgrade
+// { user identity: 'DUxf95cCdPTor7BfWMXmr2VmHQqdKMPQv6fauecy7Wuy' }
+// name: dappuser
+// application identity (for the loginContract):
+// { identity: '7kXTykyrTW192bCTKiMuEX2s15KExZaHKos8GrWCF21D' }
+// more application identiies if we need for testing:
+// { identity: '85Z6qzh9zW58CbjcZ9v3GATUf85R2VF4EL3vFHPejbVv' }
+// { identity: '5MwdaAr2AKU417AjiZYFpyMMdmSWAC9chAEdUDvFp1bC' }
+// { identity: '4cFRLzYxLLzLP72V7UJNbDxw3aF8y7kT9TAgjqEuHSff' }
 
 submitBtn.addEventListener('click', function () {
   console.log("click")
