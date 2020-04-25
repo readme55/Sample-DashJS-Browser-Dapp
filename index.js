@@ -20,10 +20,10 @@ submitBtn.addEventListener('click', function () {
 
   const clientOpts = {
     network: 'testnet',
-    mnemonic: 'toddler repair print phrase crouch curve charge typical swap bachelor outer upgrade',
+    mnemonic: 'grid bind gasp long fox catch inch radar purchase winter woman cactus',
     apps: {
       loginContract: {
-        contractId: '7kXTykyrTW192bCTKiMuEX2s15KExZaHKos8GrWCF21D'
+        contractId: 'GjUfAtc3FnbFe9HH78GaCSJV7DraAG1ctJeNeujhoqyH'
       }
     }  
   };
@@ -31,23 +31,25 @@ submitBtn.addEventListener('click', function () {
   
   const submitNoteDocument = async function () {
 
-    const platform = client.platform;
     await client.isReady();
   
     try {
-      const identity = await platform.identities.get('DUxf95cCdPTor7BfWMXmr2VmHQqdKMPQv6fauecy7Wuy');
+      // const identity = await client.platform.identities.get('DUxf95cCdPTor7BfWMXmr2VmHQqdKMPQv6fauecy7Wuy');
+      const identity = await client.platform.identities.get('FJ85ReAdCiBBRy39JcrYJo8YkoJLa5oSMpziXYoSJ2a7');
 
       docProperties = {
-        message: submitText.value + ' ' + new Date().toUTCString()
+		  header: '',
+		  body: '',
+		  plaintext: submitText.value + ' ' + new Date().toUTCString(),
       }
       // Create the note document
-      const noteDocument = await platform.documents.create(
-        'loginContract.login',
+      const noteDocument = await client.platform.documents.create(
+        'loginContract.message',
         identity,
         docProperties,
       );
       // Sign and submit the document
-      await platform.documents.broadcast(noteDocument, identity);
+      await client.platform.documents.broadcast(noteDocument, identity);
     } catch (e) {
       console.error('Something went wrong:', e);
     } finally {
