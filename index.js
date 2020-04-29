@@ -7,12 +7,9 @@ let submitText = document.getElementById('submitText');
 // Mnemonic: toddler repair print phrase crouch curve charge typical swap bachelor outer upgrade
 // { user identity: 'DUxf95cCdPTor7BfWMXmr2VmHQqdKMPQv6fauecy7Wuy' }
 // name: dappuser
-// application identity (for the loginContract):
-// { identity: '7kXTykyrTW192bCTKiMuEX2s15KExZaHKos8GrWCF21D' }
-// more application identiies if we need for testing:
-// { identity: '85Z6qzh9zW58CbjcZ9v3GATUf85R2VF4EL3vFHPejbVv' }
-// { identity: '5MwdaAr2AKU417AjiZYFpyMMdmSWAC9chAEdUDvFp1bC' }
-// { identity: '4cFRLzYxLLzLP72V7UJNbDxw3aF8y7kT9TAgjqEuHSff' }
+// identityID used for the messageContract:
+// { identity: '14c3vc1qdsCgfPNVkxnZuJJyibAx4aQGsQPtUhkrStVt' }
+// contractID: mA1kafwtR8HGoZamz72fmUWGGXKjDFLqmirtZbJYYoT
 
 submitBtn.addEventListener('click', function () {
   console.log("click")
@@ -22,8 +19,8 @@ submitBtn.addEventListener('click', function () {
     network: 'testnet',
     mnemonic: 'grid bind gasp long fox catch inch radar purchase winter woman cactus',
     apps: {
-      loginContract: {
-        contractId: 'GjUfAtc3FnbFe9HH78GaCSJV7DraAG1ctJeNeujhoqyH'
+      messageContract: {
+        contractId: 'mA1kafwtR8HGoZamz72fmUWGGXKjDFLqmirtZbJYYoT'
       }
     }  
   };
@@ -40,16 +37,23 @@ submitBtn.addEventListener('click', function () {
       docProperties = {
 		  header: '',
 		  body: '',
-		  plaintext: submitText.value + ' ' + new Date().toUTCString(),
+		  identityid: submitText.value + ' ' + new Date().toUTCString(),
       }
       // Create the note document
       const noteDocument = await client.platform.documents.create(
-        'loginContract.message',
+        'messageContract.message',
         identity,
         docProperties,
       );
+	  
+	  const documentBatch = {
+		create: [noteDocument],
+    	replace: [],
+    	delete: [],
+	  }
+
       // Sign and submit the document
-      await client.platform.documents.broadcast(noteDocument, identity);
+      await client.platform.documents.broadcast(documentBatch, identity);
     } catch (e) {
       console.error('Something went wrong:', e);
     } finally {
