@@ -131,7 +131,7 @@ $(document).ready(function () {
                 var nStart = allDocuments.length;
 
                 var i = 1
-                while (i < 100) {
+                while (i < 180) {
                     console.log(nStart)
                     queryObject = '{ "startAt" : "' + nStart + '" }';
                     queryJson = JSON.parse(queryObject);
@@ -143,7 +143,7 @@ $(document).ready(function () {
                         console.log("Received valid Response Login document")
                         return true;
                     }
-                    await new Promise(r => setTimeout(r, 500));  // sleep x ms
+                    await new Promise(r => setTimeout(r, 1000));  // sleep x ms
                     if (newDocuments.length >= 1)
                         nStart++;
                     i++;
