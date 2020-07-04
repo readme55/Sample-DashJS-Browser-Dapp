@@ -12,7 +12,7 @@ $(document).ready(function () {
 
     $("#exampleFormControlUser").val(dappAddress)
 
-    $("#submitBtn").click(function () {
+    $("#submitBtn").click(async function () {
         console.log("click")
         $("#submitBtn").prop('disabled', true);
 
@@ -31,24 +31,14 @@ $(document).ready(function () {
             try {
                 const identity = await client.platform.identities.get(dappIdentityId);  // dapp identity
 
-                //// dapp signing original
-                // var docProperties = {
-                //   nonce: 'eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzMsNzksMjM0LDcyLDc4LDE3MywxMzgsMjA2LDM3LDIzMiwyNyw4MCwxNDksNTMsMTkzLDIxNiwyNDEsMjE0LDI0OSwxMDEsMTI2LDM1LDQ1LDQzLDE2NCw5NCw5NywyLDI0NSwyNTIsMTMyLDUyLDExNSwxMDcsMTMsMTgxLDM2LDMxLDksMjIyLDI1MiwxMjEsMTQyLDE1NSwyNDYsMTk4LDQxLDE0MywyMDgsMjQwLDEsMTAsMTA1LDI1LDksMTQ4LDE1MiwyMTQsMjM1LDI0NywxOTMsMjA2LDY1LDEwNCw1MSwyNSwyMTksNDAsMTA2LDg3LDMxLDEyMSwxMjgsMTY1LDMwLDczLDU3LDEyMCw3NSwxNzksMTkxLDE0MCwxMDcsMTI4LDE1NSwxNjksMSwyMzksMTE0LDI0NiwxODEsMjI3LDIxOSwxMzksMTA0LDE3Myw5OCwyNSwyMTAsMTE0LDUwLDg2LDcwLDE1Niw4MiwxNywxMjMsMTU3LDYzLDE4MSwyMCwxMzcsMTg5LDE3Miw3OCwyMTEsMTI5LDExMCw5NiwyNDksNzgsMjM0LDIzLDI0MCwzNiwyNDUsMTcyLDIzMSwxOTRdfQ==',
-                //   reference: '3w9znscBUiz8YdPNAtnMEDpdjZcECvybdLEuVGXmBN4y',
-                //   uid_pin: 'eyJ0eXBlIjoiQnVmZmVyIiwiZGF0YSI6WzMsMTkzLDE2MiwxOTMsMjEwLDIwOSwzOCwxMDAsODUsMjM1LDEyNSw4LDQ0LDg0LDU2LDQ2LDIxMywxNjYsOTUsMjAyLDIyNywzMiwxODYsMjA5LDE3NywxNTQsMTc2LDE1MCwxMzcsMTU4LDExOSwyOSw4OCwyMDksODQsMjE3LDM3LDEzLDE3OCwyNTMsMjIsNTIsMTM2LDEzNCw3MiwyMjYsMTIyLDIyOSwyMjcsMzcsMTkwLDEwMyw0OCwyMzksMTA5LDk2LDIyMCwzMCwxNjIsMjE0LDI0OCw1NCwxMDEsMTY3LDE0NiwyMTUsMTQ1LDExMCwxOTAsMywyMDAsMjQzLDI2LDY1LDE4MSwxMzMsMTQ3LDY0LDIxMSwxNjYsOTAsNTMsMjAsMjA1LDIyNSw3NSwyMCwzMSwyMDgsMTE2LDc5LDE5NCwxOTQsNTYsMjM3LDk5LDk5LDE2OSw4NywxNzIsMSwyMzcsMjE1LDcxLDIwNCwyMzEsNjgsNTIsMzAsNzAsMTcwLDYzLDU2LDUxLDI1NSwzLDE4LDY5LDI2LDM1LDU2LDQzLDE1NywzOSwxNTksODcsMjUyLDIxMCwxNTFdfQ==',
-                //   temp_dappname: 'readme dapp browser sample',
-                //   temp_timestamp: submitText.value + ' ' + new Date().toUTCString()
-                // }
-
                 //// dapp signing simple
                 docProperties = {
                     header: 'Request Transaction TX',
                     dappname: 'Simple Browser Dapp',
-                    // reference: '4gibhaxmaUrf1SpwBegZ9EaKSfFeZLyGruZMne1GatSx', // target user docID (here readme atm, TODO make dynamic)
                     reference: username,
                     status: '0',
                     timestamp: new Date().toUTCString(),
-                    TXaddr : dappAddress,
+                    TXaddr: dappAddress,
                     TXamount: $("#exampleFormControlAmount").val(),
                 }
 
@@ -74,9 +64,9 @@ $(document).ready(function () {
                 client.disconnect();
             }
         };
-        submitTransactionDocument();
+        await submitTransactionDocument();
         $("#submitBtn").prop('disabled', false);
         console.log("done")
-        
+
     });
 });
