@@ -1,4 +1,3 @@
-
 const dappIdentityId = 'DX66EJdogM6c2yG6ULTZYCzoqqRBm64XHuU42YbSK9tu';    // todo, fetch from mnemonic when dashjs support
 const messageContractId = '6ow8zziDutSZP778QE88gWkyB2T9H7rdQaKXwUF2Fman'; // static "message contract", can be exchanged with Push-Notification-service later
 const domainContractID = "7DVe2cDyZMf8sDjQ46XqDzbeGKncrmkD6L96QohLmLbg";
