@@ -1,57 +1,6 @@
-// mydapp identityid: DX66EJdogM6c2yG6ULTZYCzoqqRBm64XHuU42YbSK9tu
-// Message {
-//   contract: DataContract {
-//     id: '6ow8zziDutSZP778QE88gWkyB2T9H7rdQaKXwUF2Fman',
-//     ownerId: 'DX66EJdogM6c2yG6ULTZYCzoqqRBm64XHuU42YbSK9tu',
-//     schema: 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',
-//     documents: {
-//       message: {
-//         properties: {
-//           header: { type: 'string' },
-//           dappname: { type: 'string' },
-//           reference: { type: 'string' },
-//           status: { type: 'string' },
-//           timestamp: { type: 'string' },
-//           STcontract: { type: 'string' },
-//           STdocument: { type: 'string' },
-//           STcontent: { type: 'string' },
-//           TXaddr: { type: 'string' },
-//           TXamount: { type: 'string' },
-//           STraw: { type: 'string' },
-//           TXraw: { type: 'string' }
-//         },
-//         additionalProperties: false
-//       }
-//     },
-//     definitions: {},
-//     entropy: 'yhPzNWNQzqwdStKz42t4A57XNvn1DYPjY4'
-//   }
-// }
-
-// Note {
-//   contract: DataContract {
-//     id: '6WqEuw8KqX9fTh7eEa9qNPKHkgPi9hv2BWQXHTSHiwwe',
-//     ownerId: 'DX66EJdogM6c2yG6ULTZYCzoqqRBm64XHuU42YbSK9tu',
-//     schema: 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',
-//     documents: {
-//       note: {
-//         properties: {
-//           date: { type: 'string' },
-//           title: { type: 'string' },
-//           message: { type: 'string' },
-//           encrypted: { type: 'boolean' }
-//         },
-//         additionalProperties: false
-//       }
-//     },
-//     definitions: {},
-//     entropy: 'yN7k73qCocnuMxA42JDGJckquqXNGAdQWZ'
-//   }
-// }
-
-var dappIdentityId = 'DX66EJdogM6c2yG6ULTZYCzoqqRBm64XHuU42YbSK9tu';    // todo, fetch from mnemonic when dashjs support
-var messageContractId = '6ow8zziDutSZP778QE88gWkyB2T9H7rdQaKXwUF2Fman';
-var noteContractId = '6WqEuw8KqX9fTh7eEa9qNPKHkgPi9hv2BWQXHTSHiwwe';
+const dappIdentityId = '8FDzB5kcpXtFQcWACXck2akHHG4nR9G4mP6gqPBGZVSi';    // todo, fetch from mnemonic when dashjs support
+const messageContractId = 'B5tT3N8cVjo7bC9yNh3LGKjbvQhWDN6MGHog4oinwLMn';
+const noteContractId = '8JnYfRf3hvQuA2UJksc9QtfS5mEPzUxYbjPvzmsFv6x5';
 
 $(document).ready(function () {
 
@@ -69,7 +18,6 @@ $(document).ready(function () {
         $("#submitBtn").prop('disabled', true);
 
         var clientOpts = {};
-        clientOpts.network = 'testnet';
         clientOpts.wallet = {};
         clientOpts.wallet.mnemonic = 'velvet timber under input escape rich gauge final submit burst glow garage';
         var curApps = '{ "messageContract" : { "contractId" : "' + messageContractId + '" } }';

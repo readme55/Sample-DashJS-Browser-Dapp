@@ -1,6 +1,6 @@
-const dappIdentityId = 'DX66EJdogM6c2yG6ULTZYCzoqqRBm64XHuU42YbSK9tu';    // todo, fetch from mnemonic when dashjs support
-const messageContractId = '6ow8zziDutSZP778QE88gWkyB2T9H7rdQaKXwUF2Fman'; // static "message contract", can be exchanged with Push-Notification-service later
-const domainContractID = "7DVe2cDyZMf8sDjQ46XqDzbeGKncrmkD6L96QohLmLbg";
+const dappIdentityId = '8FDzB5kcpXtFQcWACXck2akHHG4nR9G4mP6gqPBGZVSi';    // todo, fetch from mnemonic when dashjs support
+const messageContractId = 'B5tT3N8cVjo7bC9yNh3LGKjbvQhWDN6MGHog4oinwLMn'; // static "message contract", can be exchanged with Push-Notification-service later
+const dpnsContractID = "FiBkhut4LFPMJqDWbZrxVeT6Mr6LsH3mTNTSSHJY2ape";
 var client = null;
 var docID = '';
 var identityID = '';
@@ -23,7 +23,6 @@ $(document).ready(function () {
 
         // Submit a document ("Request Document ST") to the Users Wallet
         clientOpts = {};
-        clientOpts.network = 'testnet';
         clientOpts.wallet = {};
         clientOpts.wallet.mnemonic = 'velvet timber under input escape rich gauge final submit burst glow garage';
         var clientApps = '{ "myContract" : { "contractId" : "' + messageContractId + '" } }';
@@ -78,7 +77,7 @@ $(document).ready(function () {
         // get identity ID for user
         console.log("fetch identity ID from username")
         async function getIdentityID() {
-            clientApps = '{ "myContract" : { "contractId" : "' + domainContractID + '" } }';
+            clientApps = '{ "myContract" : { "contractId" : "' + dpnsContractID + '" } }';
             clientApps = JSON.parse(clientApps);
             clientOpts.apps = clientApps;
 
@@ -142,7 +141,7 @@ $(document).ready(function () {
                         console.log("Received valid Response Login document")
                         return true;
                     }
-                    await new Promise(r => setTimeout(r, 1000));  // sleep x ms
+                    await new Promise(r => setTimeout(r, 1500));  // sleep x ms
                     if (newDocuments.length >= 1)
                         nStart++;
                     i++;
