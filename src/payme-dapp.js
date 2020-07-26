@@ -1,6 +1,6 @@
-var dappIdentityId = 'DX66EJdogM6c2yG6ULTZYCzoqqRBm64XHuU42YbSK9tu';
-var messageContractId = '6ow8zziDutSZP778QE88gWkyB2T9H7rdQaKXwUF2Fman';
-var dappAddress = 'yM8bRVwE3bQmqrnvG1oSpyXky2gjGErR5a'
+const dappIdentityId = '8FDzB5kcpXtFQcWACXck2akHHG4nR9G4mP6gqPBGZVSi';
+const messageContractId = 'B5tT3N8cVjo7bC9yNh3LGKjbvQhWDN6MGHog4oinwLMn';
+const dappAddress = 'yM8bRVwE3bQmqrnvG1oSpyXky2gjGErR5a'
 
 $(document).ready(function () {
 
@@ -17,7 +17,6 @@ $(document).ready(function () {
         $("#submitBtn").prop('disabled', true);
 
         var clientOpts = {};
-        clientOpts.network = 'testnet';
         clientOpts.wallet = {};
         clientOpts.wallet.mnemonic = 'velvet timber under input escape rich gauge final submit burst glow garage';
         var curApps = '{ "messageContract" : { "contractId" : "' + messageContractId + '" } }';
