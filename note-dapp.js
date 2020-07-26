@@ -18,6 +18,7 @@ $(document).ready(function () {
         $("#submitBtn").prop('disabled', true);
 
         var clientOpts = {};
+        clientOpts.network = 'evonet';
         clientOpts.wallet = {};
         clientOpts.wallet.mnemonic = 'velvet timber under input escape rich gauge final submit burst glow garage';
         var curApps = '{ "messageContract" : { "contractId" : "' + messageContractId + '" } }';

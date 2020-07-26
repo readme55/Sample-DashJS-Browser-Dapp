@@ -23,6 +23,7 @@ $(document).ready(function () {
 
         // Submit a document ("Request Document ST") to the Users Wallet
         clientOpts = {};
+        clientOpts.network = 'evonet';
         clientOpts.wallet = {};
         clientOpts.wallet.mnemonic = 'velvet timber under input escape rich gauge final submit burst glow garage';
         var clientApps = '{ "myContract" : { "contractId" : "' + messageContractId + '" } }';
