@@ -1,5 +1,5 @@
 {
-  "name": "Sample-DashJS-Browser-Dapp",
+  "name": "sample-dapps",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,15 +10,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/readme55/Sample-DashJS-Browser-Dapp.git"
+    "url": "git+https://github.com/readme55/sample-dapps.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/readme55/Sample-DashJS-Browser-Dapp/issues"
+    "url": "https://github.com/readme55/sample-dapps/issues"
   },
-  "homepage": "https://github.com/readme55/Sample-DashJS-Browser-Dapp#readme",
+  "homepage": "https://github.com/readme55/sample-dapps#readme",
   "dependencies": {
     "gh-pages": "^3.1.0"
   }
