@@ -85,7 +85,7 @@ $(document).ready(function () {
             var recordLocator = "myContract.domain";
             var queryObject = '{ "where": [' +
                 '["normalizedParentDomainName", "==", "dash"],' +
-                '["normalizedLabel", "==", "' + inputUsername + '"]' +
+                '["normalizedLabel", "==", "' + inputUsername.toLowerCase() + '"]' +
                 '],' +
                 '"startAt": 1 }';
 
