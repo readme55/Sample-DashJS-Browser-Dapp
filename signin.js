@@ -1,6 +1,6 @@
-const dappIdentityId = '8FDzB5kcpXtFQcWACXck2akHHG4nR9G4mP6gqPBGZVSi';    // todo, fetch from mnemonic when dashjs support
-const messageContractId = 'B5tT3N8cVjo7bC9yNh3LGKjbvQhWDN6MGHog4oinwLMn'; // static "message contract", can be exchanged with Push-Notification-service later
-const dpnsContractID = "FiBkhut4LFPMJqDWbZrxVeT6Mr6LsH3mTNTSSHJY2ape";
+// const dappIdentityId = '8FDzB5kcpXtFQcWACXck2akHHG4nR9G4mP6gqPBGZVSi';    // todo, fetch from mnemonic when dashjs support
+// const messageContractId = 'B5tT3N8cVjo7bC9yNh3LGKjbvQhWDN6MGHog4oinwLMn'; // static "message contract", can be exchanged with Push-Notification-service later
+// const dpnsContractID = "FiBkhut4LFPMJqDWbZrxVeT6Mr6LsH3mTNTSSHJY2ape";
 var client = null;
 var docID = '';
 var identityID = '';
@@ -25,7 +25,7 @@ $(document).ready(function () {
         clientOpts = {};
         clientOpts.network = 'evonet';
         clientOpts.wallet = {};
-        clientOpts.wallet.mnemonic = 'velvet timber under input escape rich gauge final submit burst glow garage';
+        clientOpts.wallet.mnemonic = dappMnemonic;
         var clientApps = '{ "myContract" : { "contractId" : "' + messageContractId + '" } }';
         clientApps = JSON.parse(clientApps);
         clientOpts.apps = clientApps;
