@@ -1,6 +1,6 @@
-const dappIdentityId = '8FDzB5kcpXtFQcWACXck2akHHG4nR9G4mP6gqPBGZVSi';
-const messageContractId = 'B5tT3N8cVjo7bC9yNh3LGKjbvQhWDN6MGHog4oinwLMn';
-const dappAddress = 'yM8bRVwE3bQmqrnvG1oSpyXky2gjGErR5a'
+// const dappIdentityId = '8FDzB5kcpXtFQcWACXck2akHHG4nR9G4mP6gqPBGZVSi';
+// const messageContractId = 'B5tT3N8cVjo7bC9yNh3LGKjbvQhWDN6MGHog4oinwLMn';
+// const dappAddress = 'yM8bRVwE3bQmqrnvG1oSpyXky2gjGErR5a'
 
 $(document).ready(function () {
 
@@ -19,7 +19,7 @@ $(document).ready(function () {
         var clientOpts = {};
         clientOpts.network = 'evonet';
         clientOpts.wallet = {};
-        clientOpts.wallet.mnemonic = 'velvet timber under input escape rich gauge final submit burst glow garage';
+        clientOpts.wallet.mnemonic = dappMnemonic;
         var curApps = '{ "messageContract" : { "contractId" : "' + messageContractId + '" } }';
         curApps = JSON.parse(curApps);
         clientOpts.apps = curApps;
