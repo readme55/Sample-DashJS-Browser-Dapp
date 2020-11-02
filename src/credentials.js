@@ -1,8 +1,8 @@
 const dappMnemonic = 'protect horror stove scrub foster brave air ski song bitter stomach siren';
-const dappIdentityId = '2TC16ZVGdfN4M5trHtkqNtmC3yyzEWuyVbDUA5ozpZqy';
-const messageContractId = '4NKGAcdxcEXxMNTBgLvmsvRbgUUjxv7pajbb3ERvwReN';
-const noteContractId = 'FJSmCvfS8iuYb953nmKWJkjChUH82NDWLJ4cAHBYukee';
+const dappIdentityId = 'Be9CKRUEXJHro4uzmX8xdw4E5JqRMao1TSWDCDVfBdvP';
+const messageContractId = 'CfHbvNx8ZJfhoizqCDawZK53iqyuJXdqwzQ8eVh58bjE';
+const noteContractId = 'CscMg7A5qwWSFz8SmV45uP1WmeaDaS88fdo2SqxiKrxT';
 const dappAddress = 'yj2nz9VDUUPFF6StXswBD9gzEPDtAFhc5A'
-const dpnsContractID = '566vcJkmebVCAb2Dkj2yVMSgGFcsshupnQqtsz1RFbcy';
+const dpnsContractID = '3VvS19qomuGSbEYWbTsRzeuRgawU3yK4fPMzLrbV62u8';
 
 
