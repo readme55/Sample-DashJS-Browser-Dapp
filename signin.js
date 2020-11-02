@@ -1,6 +1,5 @@
-// const dappIdentityId = '8FDzB5kcpXtFQcWACXck2akHHG4nR9G4mP6gqPBGZVSi';    // todo, fetch from mnemonic when dashjs support
-// const messageContractId = 'B5tT3N8cVjo7bC9yNh3LGKjbvQhWDN6MGHog4oinwLMn'; // static "message contract", can be exchanged with Push-Notification-service later
-// const dpnsContractID = "FiBkhut4LFPMJqDWbZrxVeT6Mr6LsH3mTNTSSHJY2ape";
+// todo, fetch identity from mnemonic when dashjs support
+// static "message contract", can be exchanged with Push-Notification-service later
 var client = null;
 var docID = '';
 var identityID = '';
