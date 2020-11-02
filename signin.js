@@ -91,7 +91,8 @@ $(document).ready(function () {
             try {
                 client = new Dash.Client(clientOpts);
 
-                var queryJson = JSON.parse(queryObject);
+                // var queryJson = JSON.parse(queryObject);
+                var queryJson = queryObject;
                 const documents = await client.platform.documents.get(recordLocator, queryJson);
                 console.log(documents)
                 if (documents[0] == null || documents[0] == undefined) {
