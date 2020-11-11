@@ -25,11 +25,12 @@ $(document).ready(function () {
         clientOpts.network = 'evonet';
         clientOpts.wallet = {};
         clientOpts.wallet.mnemonic = dappMnemonic;
-        var clientApps = '{ "myContract" : { "contractId" : "' + messageContractId + '" } }';
-        clientApps = JSON.parse(clientApps);
-        clientOpts.apps = clientApps;
+        // var clientApps = '{ "myContract" : { "contractId" : "' + messageContractId + '" } }';
+        // clientApps = JSON.parse(clientApps);
+        // clientOpts.apps = clientApps;
 
         client = new Dash.Client(clientOpts);
+        client.getApps().set("msgContract",  { "contractId" : messageContractId } )
 
         console.log("submit Request Document ST")
         const submitMessageDocument = async function () {
@@ -51,7 +52,7 @@ $(document).ready(function () {
 
                 // Create the note document
                 const messageDocument = await client.platform.documents.create(
-                    'myContract.message',
+                    'msgContract.message',
                     identity,
                     docProperties,
                 );
@@ -77,11 +78,11 @@ $(document).ready(function () {
         // get identity ID for user
         console.log("fetch identity ID from username")
         async function getIdentityID() {
-            clientApps = '{ "myContract" : { "contractId" : "' + dpnsContractID + '" } }';
-            clientApps = JSON.parse(clientApps);
-            clientOpts.apps = clientApps;
+            // clientApps = '{ "myContract" : { "contractId" : "' + dpnsContractID + '" } }';
+            // clientApps = JSON.parse(clientApps);
+            // clientOpts.apps = clientApps;
 
-            var recordLocator = "myContract.domain";
+            var recordLocator = "dpns.domain";
             var queryObject = '{ "where": [' +
                 '["normalizedParentDomainName", "==", "dash"],' +
                 '["normalizedLabel", "==", "' + inputUsername.toLowerCase() + '"]' +
@@ -115,16 +116,17 @@ $(document).ready(function () {
 
         console.log("start polling for Response Login")
         async function polling() {
-            clientApps = '{ "myContract" : { "contractId" : "' + messageContractId + '" } }';
-            clientApps = JSON.parse(clientApps);
-            clientOpts.apps = clientApps;
+            // clientApps = '{ "msgContract" : { "contractId" : "' + messageContractId + '" } }';
+            // clientApps = JSON.parse(clientApps);
+            // clientOpts.apps = clientApps;
 
-            var recordLocator = "myContract.message";
+            var recordLocator = "msgContract.message";
             var queryObject = '{ "startAt" : "' + 1 + '" }';
             var queryJson = JSON.parse(queryObject);
 
             try {
                 client = new Dash.Client(clientOpts);
+                client.getApps().set("msgContract",  { "contractId" : messageContractId } )
 
                 const allDocuments = await client.platform.documents.get(recordLocator, queryJson);
                 var nStart = allDocuments.length;
