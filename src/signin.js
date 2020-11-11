@@ -101,8 +101,8 @@ $(document).ready(function () {
                 } else {
                     console.log("DocumentID for user " + inputUsername + ": " + documents[0].id)
                     console.log("Identity for user " + inputUsername + ": " + documents[0].ownerId)
-                    docID = documents[0].id
-                    identityID = documents[0].ownerId
+                    docID = documents[0].id.toString()
+                    identityID = documents[0].ownerId.toString()
                     console.log("saved Identity ID")
                 }
             } catch (e) {
@@ -121,8 +121,8 @@ $(document).ready(function () {
             // clientOpts.apps = clientApps;
 
             var recordLocator = "msgContract.message";
-            var queryObject = '{ "startAt" : "' + 1 + '" }';
-            var queryJson = JSON.parse(queryObject);
+            var queryString = '{ "startAt" : "' + 1 + '" }';
+            var queryJson = JSON.parse(queryString);
 
             try {
                 client = new Dash.Client(clientOpts);
@@ -134,13 +134,13 @@ $(document).ready(function () {
                 var i = 1
                 while (i < 180) {
                     console.log(nStart)
-                    queryObject = '{ "startAt" : "' + nStart + '" }';
-                    queryJson = JSON.parse(queryObject);
+                    queryString = '{ "startAt" : "' + nStart + '" }';
+                    queryJson = JSON.parse(queryString);
                     var newDocuments = await client.platform.documents.get(recordLocator, queryJson);
                     console.log(newDocuments)
                     console.log(newDocuments.length)
 
-                    if (newDocuments.length >= 1 && newDocuments[0].ownerId == identityID && newDocuments[0].data.reference == inputUsername) {
+                    if (newDocuments.length >= 1 && newDocuments[0].ownerId.toString() == identityID && newDocuments[0].data.reference == inputUsername) {
                         console.log("Received valid Response Login document")
                         return true;
                     }
