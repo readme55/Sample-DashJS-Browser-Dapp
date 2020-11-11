@@ -83,7 +83,7 @@ $(document).ready(function () {
             // clientOpts.apps = clientApps;
 
             var recordLocator = "dpns.domain";
-            var queryObject = '{ "where": [' +
+            var queryString = '{ "where": [' +
                 '["normalizedParentDomainName", "==", "dash"],' +
                 '["normalizedLabel", "==", "' + inputUsername.toLowerCase() + '"]' +
                 '],' +
@@ -92,8 +92,8 @@ $(document).ready(function () {
             try {
                 client = new Dash.Client(clientOpts);
 
-                // var queryJson = JSON.parse(queryObject);
-                var queryJson = queryObject;
+                var queryJson = JSON.parse(queryString);
+                
                 const documents = await client.platform.documents.get(recordLocator, queryJson);
                 console.log(documents)
                 if (documents[0] == null || documents[0] == undefined) {
