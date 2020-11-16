@@ -162,6 +162,7 @@ $(document).ready(function () {
 
         if (response) {
             sessionStorage.setItem('dash_username', $("#inputUsername").val());
+            sessionStorage.setItem('dash_identityID', identityID);
             console.log("username set: " + $("#inputUsername").val())
             window.location.href = "./index.html";
         }
