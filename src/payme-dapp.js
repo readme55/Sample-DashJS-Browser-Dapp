@@ -1,7 +1,3 @@
-// const dappIdentityId = '8FDzB5kcpXtFQcWACXck2akHHG4nR9G4mP6gqPBGZVSi';
-// const messageContractId = 'B5tT3N8cVjo7bC9yNh3LGKjbvQhWDN6MGHog4oinwLMn';
-// const dappAddress = 'yM8bRVwE3bQmqrnvG1oSpyXky2gjGErR5a'
-
 $(document).ready(function () {
 
     let username = sessionStorage.getItem('dash_username');
@@ -17,7 +13,7 @@ $(document).ready(function () {
         $("#submitBtn").prop('disabled', true);
 
         var clientOpts = {};
-        clientOpts.network = 'evonet';
+        // clientOpts.network = 'evonet';
         clientOpts.wallet = {};
         clientOpts.wallet.mnemonic = dappMnemonic;
         var curApps = '{ "messageContract" : { "contractId" : "' + messageContractId + '" } }';
