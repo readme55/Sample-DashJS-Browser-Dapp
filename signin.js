@@ -22,7 +22,7 @@ $(document).ready(function () {
 
         // Submit a document ("Request Document ST") to the Users Wallet
         clientOpts = {};
-        clientOpts.network = 'evonet';
+        // clientOpts.network = 'evonet';
         clientOpts.wallet = {};
         clientOpts.wallet.mnemonic = dappMnemonic;
 
