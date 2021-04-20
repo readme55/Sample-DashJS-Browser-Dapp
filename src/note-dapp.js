@@ -17,6 +17,7 @@ $(document).ready(function () {
         // clientOpts.network = 'evonet';
         clientOpts.wallet = {};
         clientOpts.wallet.mnemonic = dappMnemonic;
+        clientOpts.wallet.adapter = localforage;
         var curApps = '{ "messageContract" : { "contractId" : "' + messageContractId + '" } }';
         curApps = JSON.parse(curApps);
         clientOpts.apps = curApps;

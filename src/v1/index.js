@@ -11,20 +11,33 @@ let submitText = document.getElementById('submitText');
 // { identity: '14c3vc1qdsCgfPNVkxnZuJJyibAx4aQGsQPtUhkrStVt' }
 // contractID: mA1kafwtR8HGoZamz72fmUWGGXKjDFLqmirtZbJYYoT
 
-submitBtn.addEventListener('click', function () {
+submitBtn.addEventListener('click', async function () {
   console.log("click")
   submitBtn.disabled = true;
 
-  const clientOpts = {
-    network: 'testnet',
-    mnemonic: 'velvet timber under input escape rich gauge final submit burst glow garage',  // vendor 
-    apps: {
-      messageContract: {
-        contractId: 'B5tT3N8cVjo7bC9yNh3LGKjbvQhWDN6MGHog4oinwLMn'  // message contract
-      }
-    }
-  };
+  var clientOpts = {};
+  clientOpts.network = 'testnet';
+  clientOpts.wallet = {};
+  clientOpts.wallet.mnemonic = dappMnemonic;
+  clientOpts.wallet.adapter = localforage;
+
   const client = new Dash.Client(clientOpts);
+
+  const createIdentity = async function () {
+    try {
+
+      const platform = client.platform;
+      const identity = await platform.identities.register();
+      console.log({ identity });
+
+    } catch (e) {
+      console.error('Something went wrong:', e);
+    } finally {
+      client.disconnect();
+    }
+  }
+  await createIdentity()
+
 
   const submitNoteDocument = async function () {
 
@@ -71,15 +84,14 @@ submitBtn.addEventListener('click', function () {
       //// Sign and submit the document
       // await client.platform.documents.broadcast(documentBatch, identity);
 
-      
+
     } catch (e) {
       console.error('Something went wrong:', e);
     } finally {
-      console.log("submited login document with message: " + submitText.value)
-      client.disconnect();
+      // client.disconnect();
     }
   };
-  submitNoteDocument();
+  // submitNoteDocument();
   submitBtn.disabled = false;
   console.log("done")
 
