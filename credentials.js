@@ -1,7 +1,7 @@
-const dappMnemonic = 'era message genuine crystal margin cricket fabric address tank omit swing large';
-const dappIdentityId = 'HK1jnhxWMDuoEwkvKXTXFR5WeTYzx4Vm9C7Yx9qPhWXC';
-const dappAddress = 'yMxELPfsPbn5UienyykyySLJ4TA3QQCqw5'
-const messageContractId = '3coTShwTvmKiySpwmDDzRJ9FGQx4RNLdawLttT9RNxXa';
-const noteContractId = '9PiTpFPE4BC9Ugo2etsD2UDntv37qgHWoj67oW8fWhP6';
-const dpnsContractID = '36ez8VqoDbR8NkdXwFaf9Tp8ukBdQxN8eYs8JNMnUyKz';
+const dappMnemonic = 'depth letter any window nerve fiber spy note aspect found rose level';
+const dappIdentityId = '2ggQgfELtMFHkkTjo5TxYhDhDHNpuwkeeE9FEVs6v5CF';
+const dappAddress = 'yRMQXm8HUahbUCAJspqCdWkvQP4QXa1fbv'
+const messageContractId = '3oURAJACLdVnxdWzpjHL4m81nYTT81eQoLsiWAhXKmxw';
+const noteContractId = 'CJyrXCyRCWz5xhiAWzGZV7ep9yv3nUBmLq2ZJNMCEqVP';
+const dpnsContractID = '76wgB8KBxLGhtEzn4Hp5zgheyzzpHYvfcWGLs69B2ahq';
 const dashNetwork = 'testnet';
