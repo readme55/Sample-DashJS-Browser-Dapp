@@ -5,6 +5,7 @@ let client = null;
 let identityId = '';
 let clientOpts = {};
 
+
 $(document).ready(function () {
     console.log("doc ready")
 
@@ -25,7 +26,9 @@ $(document).ready(function () {
         clientOpts.network = dashNetwork;
         clientOpts.wallet = {};
         clientOpts.wallet.mnemonic = dappMnemonic;
-        clientOpts.wallet.adapter = localforage;
+        clientOpts.wallet.adapter = new LocalForageWrapper();
+        clientOpts.wallet.unsafeOptions = {};
+        clientOpts.wallet.unsafeOptions.skipSynchronizationBeforeHeight = 415000; // only sync from start of 2021
 
         client = new Dash.Client(clientOpts);
         client.getApps().set("messageContract", { "contractId": messageContractId })
@@ -63,7 +66,7 @@ $(document).ready(function () {
                 console.log("DocumentID for user " + inputUsername + ": " + identityIdRecord.id.toString())
                 console.log("Identity for user " + inputUsername + ": " + identityId)
                 console.log("saved Identity ID")
-                
+
             } catch (e) {
                 console.error('Something went wrong:', e);
             } finally {
@@ -106,6 +109,7 @@ $(document).ready(function () {
                 }
 
                 // Sign and submit the document
+                console.log("submitting...")
                 await client.platform.documents.broadcast(documentBatch, identity);
             } catch (e) {
                 console.error('Something went wrong:', e);
@@ -142,7 +146,7 @@ $(document).ready(function () {
                         nStart = nStart + documents.length;
                         continue;
                     }
-                    
+
                     if (documents.length >= 1 && documents[0].ownerId.toString() == identityId && documents[0].data.reference == inputUsername) {
                         console.log("Received valid Authentication Response")
                         return true;

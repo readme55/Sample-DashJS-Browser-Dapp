@@ -17,7 +17,9 @@ $(document).ready(function () {
         // clientOpts.network = 'evonet';
         clientOpts.wallet = {};
         clientOpts.wallet.mnemonic = dappMnemonic;
-        clientOpts.wallet.adapter = localforage;
+        clientOpts.wallet.adapter = new LocalForageWrapper();
+        clientOpts.wallet.unsafeOptions = {};
+        clientOpts.wallet.unsafeOptions.skipSynchronizationBeforeHeight = 415000; // only sync from start of 2021
         var curApps = '{ "messageContract" : { "contractId" : "' + messageContractId + '" } }';
         curApps = JSON.parse(curApps);
         clientOpts.apps = curApps;
