@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-	"deploy": "node node_modules/gh-pages/bin/gh-pages.js -d src/",
-	"gh-pages-clean": "node node_modules/gh-pages/bin/gh-pages-clean",
+    "deploy": "node node_modules/gh-pages/bin/gh-pages.js -d src/",
+    "gh-pages-clean": "node node_modules/gh-pages/bin/gh-pages-clean",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
